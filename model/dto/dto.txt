@@ -1,0 +1,1 @@
+en la carpeta dto se utiliza para el mapeo y envio de datos a la BASE DE DATOS, en este apartado implementaremos el patron converter

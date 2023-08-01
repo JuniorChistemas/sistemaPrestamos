@@ -1,0 +1,1 @@
+aqui seran almacenados las vistas del aplicativo web

@@ -1,0 +1,1 @@
+en esta parte se implementaran las interfaces que ayunde a optimizar el los patrones de diseño y arquitectura
