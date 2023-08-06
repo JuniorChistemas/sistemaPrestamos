@@ -1,0 +1,220 @@
+.dots-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparencia del overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #b3d4fc;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+    margin-right: 0;
+}
+
+.dot:nth-child(1) {
+    animation-delay: -0.3s;
+}
+
+.dot:nth-child(2) {
+    animation-delay: -0.1s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        background-color: #b3d4fc;
+        box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    }
+
+    50% {
+        transform: scale(1.2);
+        background-color: #6793fb;
+        box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+    }
+
+    100% {
+        transform: scale(0.8);
+        background-color: #b3d4fc;
+        box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+    }
+}
+.hide {
+    display: none;
+}
+/* gradiente */
+.background--custom {
+    background-color: #B6FFFF;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+canvas#canvas {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 67%;
+    transform: rotate(0deg) scale(2) translateY(0%);
+    --gradient-color-1: #7CDAF9;
+    --gradient-color-2: #4d44cc;
+    --gradient-color-3: #004173;
+    --gradient-color-4: #0CB7F2;
+    --gradient-speed: 0.000008;
+}
+/* login */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 520px;
+    height: 500px;
+    max-width: 99%;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+    margin: 5%;
+    margin-left: 28%;
+    background-color: #ffffff25;
+    border-radius: 15px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
+    border: 0.1px solid rgba(128, 128, 128, 0.178);
+    /* border: solid 2px red; */
+}
+
+.left {
+    width: 66%;
+    height: 100%;
+    /* border: solid 2px red; */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100%;
+    width: 100%;
+    left: 0;
+    backdrop-filter: blur(20px);
+    position: relative;
+    /* border: solid 2px red; */
+}
+
+.form::before {
+    position: absolute;
+    content: "";
+    width: 40%;
+    height: 40%;
+    right: 1%;
+    z-index: -1;
+    background: radial-gradient(circle,
+            rgb(194, 13, 170) 20%,
+            rgb(26, 186, 235) 60%,
+
+            rgb(26, 186, 235) 100%);
+    filter: blur(70px);
+    border-radius: 50%;
+}
+
+.right {
+    width: 34%;
+    height: 100%;
+    /* border: solid 2px red; */
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+.container::after {
+    position: absolute;
+    content: "";
+    width: 80%;
+    height: 80%;
+    right: -40%;
+    background: rgb(157, 173, 203);
+    background: radial-gradient(circle,
+            rgba(157, 173, 203, 1) 61%,
+            rgba(99, 122, 159, 1) 100%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.input,
+button {
+    background: rgba(253, 253, 253, 0);
+    outline: none;
+    border: 1px solid rgba(255, 0, 0, 0);
+    border-radius: 0.5rem;
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    display: block;
+    color: #425981;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.input-block {
+    position: relative;
+}
+
+label {
+    position: absolute;
+    left: 15%;
+    top: 37%;
+    pointer-events: none;
+    color: rgb(37, 36, 36);
+}
+
+.forgot {
+    display: block;
+    margin: 5px 0 10px 0;
+    margin-left: 35px;
+    color: #5e7eb6;
+    font-size: 0.9em;
+}
+
+.input:focus+label,
+.input:valid+label {
+    transform: translateY(-120%) scale(0.9);
+    transition: all 0.4s;
+}
+
+button {
+    background-color: #5e7eb6;
+    color: white;
+    font-size: medium;
+    box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+}
+
+a {
+    color: #5e7eb6;
+}
+
+.input {
+    box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
+        4px 4px 4px rgba(218, 218, 218, 0.13);
+}
