@@ -1,3 +1,2 @@
 # Desarrolladores
-- Martinez Junior
-- Agurto Pedro
+- Martinez Chunga Jesus Junior
