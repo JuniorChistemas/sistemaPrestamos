@@ -10,6 +10,7 @@
             $contrasenia ="19151423";
             try {
                 self::$conexion = new PDO("mysql:host=$servidor;dbname=$nombre",$usuario,$contrasenia);
+                echo("---conecto a la base de datos");
                 return self::$conexion;
             } catch (Exception $e) {
                 echo($e->getMessage());

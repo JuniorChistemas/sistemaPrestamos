@@ -117,7 +117,7 @@
     <li>
         <div class="profile-details">
             <div class="profile-content">
-                <img src="#" alt="profileImg">
+                <img src="../../public/svg/user.svg" alt="profileImg">
             </div>
             <div class="name-job">
                 <div class="profile_name">Administrador</div>

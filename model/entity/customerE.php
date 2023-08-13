@@ -1,6 +1,6 @@
 <?php
     class customerE{
-        // este es la clase que se comunicar con la base de datos
+        // este es la clase que se va comunicar con la base de datos
         // el nombre y el apellido se guardaran en mayusculas 
         private String $IdCliente;
         private String $Nombre;

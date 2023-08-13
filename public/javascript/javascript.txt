@@ -1,1 +1,11 @@
 scripts que aumentaran el dinamismo en para el sistema
+
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03699232','Walter','Martinez','1234','mi foto','Administrador',0);
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03699231','Persona 1','Martinez','1234','mi foto','Administrador',0);
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03696231','Persona 2','Apellido 1 y 2','1234','mi foto','Administrador',1);
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03695231','Persona 3','Apellido 1 y 2','1234','mi foto','Administrador',1);
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03694231','Persona 4','Apellido 1 y 2','1234','mi foto','Administrador',1);
+insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03698231','Persona 5','Apellido 1 y 2','1234','mi foto','Administrador',1);
+
+
+Naya Mirage
