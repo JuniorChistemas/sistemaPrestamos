@@ -6,6 +6,3 @@ insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)valu
 insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03695231','Persona 3','Apellido 1 y 2','1234','mi foto','Administrador',1);
 insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03694231','Persona 4','Apellido 1 y 2','1234','mi foto','Administrador',1);
 insert into usuario(idUsuario,nombre,apellido,contrasenia,foto,nivel,estado)values('03698231','Persona 5','Apellido 1 y 2','1234','mi foto','Administrador',1);
-
-
-Naya Mirage

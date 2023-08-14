@@ -6,7 +6,6 @@
     // require_once("c:/xampp/htdocs/proyecto-1/service/interface/IDao.php");
     class factoryA extends IDao{
         public function userClass(): IUser{
-            echo("---------inicializo");
             return new userA();
         }
     }

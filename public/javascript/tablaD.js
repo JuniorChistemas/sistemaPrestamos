@@ -44,8 +44,8 @@ const initDataTable = async () => {
 const listUsers = async () => {
     try {
         let content = ``;
-        var index=1;
-        datos.forEach(function(user) {
+        var index = 1;
+        datos.forEach(function (user) {
             content += `
                 <tr>
                     <td>${index++}</td>
@@ -53,16 +53,16 @@ const listUsers = async () => {
                     <td>${user.nombre}</td>
                     <td>${user.apellido}</td>
                     <td>${user.nivel}</td>
-                    <td><i class="fa-solid fa-check" style="color: green;"></i></td>
+                    <td>${user.estado}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary"><i class="fa-solid fa-pencil"></i></button>
-                        <button class="btn btn-sm btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                    <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="#" role="button">Editar</a>
+                        <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="#" role="button">Eliminar</a>
                     </td>
                 </tr>`;
         });
         tableBody_users.innerHTML = content;
     } catch (ex) {
-        alert("error: "+ex);
+        alert("error: " + ex);
     }
 };
 

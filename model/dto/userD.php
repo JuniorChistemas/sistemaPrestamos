@@ -1,12 +1,12 @@
 <?php
     class userD{
-        private int $idUsuario;
-        private String $nombre;
-        private String $apellido;
-        private String $contrasenia;
-        private String $foto;
-        private String $nivel;
-        private string $estado;
+        public int $idUsuario;
+        public String $nombre;
+        public String $apellido;
+        public String $contrasenia;
+        public String $foto;
+        public String $nivel;
+        public string $estado;
         // public function __construct(String $idUsuario,String $nombre,String $apellido,String $contrasenia,String $foto, String $nivel,String $estado)
         // {
         //     $this->idUsuario = $idUsuario;

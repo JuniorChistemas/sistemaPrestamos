@@ -7,7 +7,6 @@
         public function condicional($nivel){
             switch ($nivel) {
                 case 'administrador':
-                    echo("----------holaa---------");
                     return new factoryA();
                     // echo("hola2");
                     break;

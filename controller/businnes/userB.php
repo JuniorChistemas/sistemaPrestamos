@@ -8,12 +8,11 @@
         public function __construct(IDao $obj)
         {
             $this->Dao = ($obj->userClass()); 
-            echo("---cree el objeto administrador----------");
         }
         public function listar(){
-            echo("---------llamo los resultados----------");
-            if ($this->Dao->listar()!=null) {
-                return $this->Dao->listar();
+            if ($this->Dao->listarDatos()!=null) {
+                // print_r($this->Dao->listarDatos());
+                return $this->Dao->listarDatos();
             }
             return null;
         }

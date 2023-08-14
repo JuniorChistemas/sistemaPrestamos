@@ -1,5 +1,6 @@
 <?php
 include("converter.php");
+include("../../model/dto/userD.php");
     class userConverter extends converter{
         // funcion para convertir a entidad
         public function entidad($dto)
@@ -11,7 +12,7 @@ include("converter.php");
             // private String $foto;
             // private String $nivel;
             // private bool $estado;
-            $entidad = new userE();
+            $entidad = new userEm();
             // el dto por acepta numeros y por ello se al pasar a entidad se debe pasar como texto
             $entidad->setIdUsuario(strval($dto->getIdUsuario()));
             // conversion a mayusculas
@@ -45,15 +46,15 @@ include("converter.php");
          // funcion para convertir a DTO
         public function dto($entidad)
         {
-            $entidad = new userE();
+            // $entidad = new userEm();
             $dto = new userD();
             $dto->setIdUsuario(intval($entidad->getIdUsuario()));
             $dto->setNombre($entidad->getNombre());
             $dto->setApellido($entidad->getApellido());
-            $dto->setContrasenia(($entidad->getNivel()==="administrador")?$entidad->getContrasenia():"*******");
-            $dto->setFoto($entidad->getFoto());
+            // $dto->setContrasenia(($entidad->getNivel()==="administrador")?$entidad->getContrasenia():"*******");
+            // $dto->setFoto($entidad->getFoto());
             $dto->setNivel($entidad->getNivel());
-            $dto->setEstado(($entidad->getEstado()===1)?"ACTIVO":"INACTIVO");
+            $dto->setEstado((intval($entidad->getEstado())===1)?"ACTIVO":"INACTIVO");
             return $dto;
         }
     }

@@ -6,8 +6,12 @@ $fabrica = factoryB::getInicio();
 $clienteBo = $fabrica->getUsuario();
 $hola = $clienteBo->listar();
 ?>
+<div class="alert alert-primary col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5" role="alert">
+    <strong>TABLA DE USUARIOS </strong> practicando el converter y DTO
+</div>
+
 <main>
-        <div class="container my-4" style="background-color: blanchedalmond;">
+        <div class="container my-4 p-5" style="background-color: #e8f5ff;">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <table id="datatable_users" class="table table-striped">
@@ -17,12 +21,12 @@ $hola = $clienteBo->listar();
                         <thead>
                             <tr>
                                 <th class="centered">#</th>
-                                <th class="centered">Name</th>
-                                <th class="centered">Email</th>
-                                <th class="centered">City</th>
-                                <th class="centered">Company</th>
-                                <th class="centered">Status</th>
-                                <th class="centered">Options</th>
+                                <th class="centered">DNI</th>
+                                <th class="centered">Nombre</th>
+                                <th class="centered">Apellidos</th>
+                                <th class="centered">Nivel</th>
+                                <th class="centered">Estado</th>
+                                <th class="centered">Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody_users"></tbody>

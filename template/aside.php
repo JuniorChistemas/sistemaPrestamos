@@ -1,3 +1,6 @@
+<?php
+    $URL_Base ="http://localhost:8080/proyecto-1/view/";
+?>
 <div class="sidebar close">
     <div class="logo-details">
         <i class='bx bxl-shopify bx-tada'>
@@ -7,7 +10,7 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="#">
+            <a href="<?php echo $URL_Base;?>web/principal.php">
                 <i>
                     <img src="../../public/svg/home.svg" alt="home" style='margin-top: 7px;'>
                 </i>
@@ -78,7 +81,7 @@
             </div>
             <ul class=" sub-menu">
         <li><a href="#">Usuarios</a></li>
-        <li><a href="#">Clientes</a></li>
+        <li><a href="<?php echo $URL_Base;?>user/view.php">Clientes</a></li>
     </ul>
     </li>
     <li>
