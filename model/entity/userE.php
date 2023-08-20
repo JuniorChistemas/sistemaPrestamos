@@ -1,6 +1,6 @@
 <?php
     class userEm{
-        private String $idUsuario;
+        private int $idUsuario;
         private String $nombre;
         private String $apellido;
         private String $contrasenia;
@@ -20,7 +20,7 @@
         public function getIdUsuario(){
             return $this->idUsuario;
         }
-        public function setIdUsuario(String $idUsuario){
+        public function setIdUsuario(int $idUsuario){
             $this->idUsuario = $idUsuario;
         }
         public function getNombre(){

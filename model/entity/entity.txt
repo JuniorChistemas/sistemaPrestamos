@@ -1,1 +1,0 @@
-en la carpeta dto se utiliza para el mapeo y envio de datos a la carpeta de VISTA, en este apartado implementaremos el patron converter

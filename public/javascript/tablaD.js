@@ -42,6 +42,8 @@ const initDataTable = async () => {
 };
 
 const listUsers = async () => {
+    //<a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="view.php?codigo=${parseInt(user.idUsuario)}" role="button">Eliminar</a>
+    //<a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(user.idUsuario)});" role="button">Eliminar</a>
     try {
         let content = ``;
         var index = 1;
@@ -56,7 +58,7 @@ const listUsers = async () => {
                     <td>${user.estado}</td>
                     <td>
                     <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="#" role="button">Editar</a>
-                        <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="#" role="button">Eliminar</a>
+                    <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(user.idUsuario)});" role="button">Eliminar</a>
                     </td>
                 </tr>`;
         });

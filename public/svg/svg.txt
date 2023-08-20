@@ -1,1 +1,0 @@
-imagenes vectoriales que seran los iconos en el sistema pero todo debe estar en formato SVG

@@ -7,7 +7,30 @@
         {   
             $this->conexion = db::conectar();
         }
-        public function crear($entidad){
+        public function crear($dto){
+            $converter = new userConverter();
+            $validar = userVal::validar($dto);
+            // $entidad = $converter->entidad($dto);
+            if($validar){
+                $entidad = $converter->entidad($dto);
+                $datos = array(
+                'IdUsuario' => $entidad->getIdUsuario(),
+                'Nombre' => $entidad->getNombre(),
+                'Apellido' => $entidad->getApellido(),
+                'Contrasenia' => $entidad->getContrasenia(),
+                'P_Nivel' => $entidad->getNivel(),
+                'Foto' => $entidad->getFoto(),
+                'Estado' => $entidad->getEstado()
+                );
+            }
+            $columnas = implode(', ', array_keys($datos));
+            $valores = "'" . implode("', '", array_values($datos)) . "'";           
+            $query = "INSERT INTO usuario ($columnas) VALUES ($valores)";   
+            if ($this->conexion->query($query) === false) {
+                return false;
+            }else{
+                return true;
+            }
         }
         public function leer($id)
         {           
