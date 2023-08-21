@@ -9,5 +9,23 @@
         <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
         <!-- archivos locales -->
         <script src="../../public/javascript/aside.js"></script>
+        <script>
+        function borrar(id) {
+            // alert(id);
+            Swal.fire({
+                title: 'Desea eliminar el registro?',
+                text: "Se elimina toda la informacion en la base de datos",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "view.php?codigo="+id;
+                }
+            })
+        }
+    </script>
     </body>
 </html>

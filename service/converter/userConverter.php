@@ -14,6 +14,7 @@ include("../../model/dto/userD.php");
             $entidad->setApellido(strtoupper($dto->getApellido()));
             // encriptamos la contraseña
             $entidad->setContrasenia(password_hash($dto->getContrasenia(),PASSWORD_BCRYPT));
+            // $entidad->setContrasenia($dto->getContrasenia()===null?"":password_hash($dto->getContrasenia(),PASSWORD_BCRYPT));
             $entidad->setFoto($dto->getFoto());
             //              nivel
             $entidad->setNivel(strtolower($dto->getNivel()));
@@ -30,7 +31,7 @@ include("../../model/dto/userD.php");
             $dto->setNombre($entidad->getNombre());
             $dto->setApellido($entidad->getApellido());
             // $dto->setContrasenia(($entidad->getNivel()==="administrador")?$entidad->getContrasenia():"*******");
-            // $dto->setFoto($entidad->getFoto());
+            $dto->setFoto("../../../../usuario/".$entidad->getFoto());
             $dto->setNivel($entidad->getNivel());
             $dto->setEstado((intval($entidad->getEstado())===1)?"ACTIVO":"INACTIVO");
             return $dto;

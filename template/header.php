@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +15,35 @@
     <link rel="stylesheet" href="../../public/style/header.css">
     <link rel="stylesheet" href="../../public/style/new.css">
 </head>
+
 <body>
-<section class="home-section">
+    <section class="home-section">
         <div class="home-content">
             <i class='bx bx-menu'>
                 <img src="../../public/svg/text_align_justify.svg" alt="">
             </i>
             <span class="text d-inline-block"></span>
         </div>
+        <?php
+        if (isset($_GET['mensaje'])) {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: "success",
+                    title: "<?php echo $_GET['mensaje']; ?>"
+                });
+            </script>
+        <?php
+        }
+        if (isset($_GET['alerta'])) {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'INCONCISTENCIA DE DATOS: <?php echo $_GET['alerta']; ?> ',
+                })
+            </script>
+        <?php
+        }
+        ?>

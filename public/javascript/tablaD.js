@@ -2,7 +2,7 @@ let dataTable;
 let dataTableIsInitialized = false;
 
 const dataTableOptions = {
-    //scrollX: "2000px",
+    // scrollX: "2000px",
     lengthMenu: [5, 10, 15, 20, 100, 200, 500],
     columnDefs: [
         { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
@@ -46,18 +46,17 @@ const listUsers = async () => {
     //<a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(user.idUsuario)});" role="button">Eliminar</a>
     try {
         let content = ``;
-        var index = 1;
         datos.forEach(function (user) {
             content += `
                 <tr>
-                    <td>${index++}</td>
+                    <td class="text-center"> <img src= "${user.foto}" alt="no existe" width="50"></td>
+                    <td>${user.nivel}</td>
                     <td>${user.idUsuario}</td>
                     <td>${user.nombre}</td>
                     <td>${user.apellido}</td>
-                    <td>${user.nivel}</td>
                     <td>${user.estado}</td>
                     <td>
-                    <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="#" role="button">Editar</a>
+                    <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="update.php?codigo=${parseInt(user.idUsuario)}" role="button">Editar</a>
                     <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(user.idUsuario)});" role="button">Eliminar</a>
                     </td>
                 </tr>`;
