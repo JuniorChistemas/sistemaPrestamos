@@ -9,7 +9,7 @@ if ($_POST) {
 }
 if (isset($_GET['codigo'])) {
     $dato = $clienteBo->datosFila($_GET['codigo']);
-    echo($dato['nivel']);
+    // echo($dato['nivel']);
 }
 ?>
 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px;">

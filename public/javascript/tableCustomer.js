@@ -5,14 +5,48 @@ const dataTableOptions = {
     // scrollX: "2000px",
     dom: 'Bfrtip',
     buttons: [
-        'copy', 'csv', 'excel', 'pdf', 'print'
+        {
+            extend: 'copy',
+            text: 'Copiar',
+            className: 'btn btn-primary'
+        },
+        {
+            extend: 'csv',
+            text: 'Exportar a CSV',
+            title: 'DATOS CLIENTE',
+            className: 'btn btn-success'
+        },
+        {
+            extend: 'excel',
+            text: 'Exportar a Excel',
+            title: 'DATOS CLIENTE',
+            className: 'btn btn-info'
+        },
+        {
+            extend: 'pdf',
+            text: 'Exportar a PDF',
+            title: 'DATOS CLIENTE',
+            className: 'btn btn-warning',
+            exportOptions: {
+                columns: ':not(.excluido)'
+            }
+        },
+        {
+            extend: 'print',
+            title: 'DATOS CLIENTE',
+            text: 'Imprimir',
+            className: 'btn btn-secondary',
+            exportOptions: {
+                columns: ':not(.excluido)'
+            }
+        }
     ],
     columnDefs: [
         { className: "centered", targets: [0, 1, 2, 3, 4, 5, 6] },
         { orderable: false, targets: [5, 6] },
         { searchable: false, targets: [1] }
     ],
-    pageLength: 3,
+    pageLength: 12,
     destroy: true,
     language: {
         buttons: {
@@ -63,8 +97,8 @@ const listUsers = async () => {
                     <td>${custo.Apellido}</td>
                     <td>${custo.Estado}</td>
                     <td>
-                    <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="update.php?codigo=${parseInt(custo.idUsuario)}" role="button">Editar</a>
-                    <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(custo.idUsuario)});" role="button">Eliminar</a>
+                    <a name="btnEditar" id="btnEditar" class="btn btn-primary" href="update.php?codigo=${parseInt(custo.IdCliente)}" role="button">Editar</a>
+                    <a name="btnElimnar" id="btnElimnar" class="btn btn-danger" href="javascript:borrar(${parseInt(custo.IdCliente)});" role="button">Eliminar</a>
                     </td>
                 </tr>`;
         });

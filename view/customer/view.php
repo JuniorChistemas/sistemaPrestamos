@@ -5,11 +5,13 @@ include("../../controller/businnes/factoryB.php");
 $fabrica2 = factoryB::getInicio();
 $clienteB = $fabrica2->getCliente();
 $dataCustomer = $clienteB->listar();
-print_r($dataCustomer);
+if (isset($_GET['codigo'])) {
+    $clienteB->eliminar($_GET['codigo']);
+}
 ?>
-<button class="new position-absolute top-0 end-0 m-5" id="cliente">Agregar usuario</button>
+<button class="new position-absolute top-0 end-0 m-5" id="cliente">Agregar cliente</button>
 <div class="alert alert-primary col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5" role="alert" style=" text-align: center;font-size: medium;">
-    <strong>TABLA DE CLIENTES</strong>
+    <strong>TABLA DE CLIENTE</strong>
 </div>
 <main>
     <div class="container my-4 p-5" style="background-color: #e8f5ff;">
@@ -27,7 +29,7 @@ print_r($dataCustomer);
                             <th class="centered">NOMBRE</th>
                             <th class="centered">APELLIDOS</th>
                             <th class="centered">ESTADO</th>
-                            <th class="centered">Acciones</th>
+                            <th class="centered excluido">Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody_customers"></tbody>

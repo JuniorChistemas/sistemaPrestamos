@@ -13,7 +13,6 @@
         public function crear($dto){
             $converter = new userConverter();
             $validar = userVal::validar($dto);
-            // $entidad = $converter->entidad($dto);
             if($validar){
                     $entidad = $converter->entidad($dto);
                     $datos = array(

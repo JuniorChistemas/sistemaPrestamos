@@ -10,20 +10,68 @@ include("../../service/converter/customerConverter.php");
         {
             $this->conexion = db::conectar();
         }
-        public function crear($entidad){
+        public function crear($dto){
+            $converter = new customerConverter();
+            // $validar = 
+                $entidad = $converter->entidad($dto);
+                    $datos = array(
+                    'idCliente' => $entidad->getIdCliente(),
+                    'nombre' => $entidad->getNombre(),
+                    'apellido' => $entidad->getApellido(),
+                    'celular' => $entidad->getCelular(),
+                    'domicilio' => $entidad->getDomicilio(),
+                    'estado' => intval($entidad->isEstado())
+                    );
+                $columnas = implode(', ', array_keys($datos));
+                $valores = "'" . implode("', '", array_values($datos)) . "'";           
+                $query = "INSERT INTO cliente ($columnas) VALUES ($valores)"; 
+                if ($this->conexion->query($query)) {
+                    // aqui podemos agregar el historial a la tabla de registro pero antes de ello necesitamos el login implementado para utilizar variables globales
+                    return true;
+                }else{
+                    return false;
+                }
         }
         public function leer($id)
-        {           
+        {  
+            $sentencia = $this->conexion->prepare("SELECT* FROM cliente WHERE idCliente=:id");
+            $sentencia->bindParam(':id', $id, PDO::PARAM_STR);
+            $sentencia->execute();      
+            $fila = $sentencia->fetch(PDO::FETCH_ASSOC);
+            return $fila;
         }
-        public function actualizar($entidad){
+        public function actualizar($dto){
+            $converter = new customerConverter();
+            // validar
+            $entidad = $converter->entidad($dto);
+            $query = "UPDATE cliente SET nombre = :nombre, apellido= :apellido, celular = :celular, domicilio = :domicilio, estado = :estado WHERE idCliente = :id";
+            $consulta = $this->conexion->prepare($query);
+            $consulta->bindParam(':nombre', $entidad->getNombre(),PDO::PARAM_STR);
+            $consulta->bindParam(':apellido', $entidad->getApellido(),PDO::PARAM_STR);
+            $consulta->bindParam(':celular', $entidad->getCelular(),PDO::PARAM_STR);
+            $consulta->bindParam(':domicilio', $entidad->getDomicilio(),PDO::PARAM_STR);
+            $consulta->bindParam(':estado', $entidad->isEstado(),PDO::PARAM_INT);
+            $consulta->bindParam(':id', $entidad->getIdCliente(),PDO::PARAM_STR);
+            try {
+                $consulta->execute();
+                return true;
+            } catch (PDOException $e) {
+                echo "Error en la actualización: " . $e->getMessage();
+            }
         }
         public function eliminar(string $id){
+            $query = "DELETE FROM cliente WHERE idCliente = '$id';";
+            echo($query);
+            if ($this->conexion->query($query)) {
+                return true;
+            }
+            return false;
         }
         public function listar(){
-            // $sentencia = $this->conexion->prepare("SELECT* FROM cliente");
-            // $sentencia->execute();d
-            // $lista = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            // return $lista;
+            $sentencia = $this->conexion->prepare("SELECT* FROM cliente");
+            $sentencia->execute();
+            $lista = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            return $lista;
         }
         public function CodigoCliente(){       
         }
@@ -46,4 +94,3 @@ include("../../service/converter/customerConverter.php");
             return $usuarios;
         }
     }
-?>
