@@ -1,6 +1,6 @@
 <?php
-    include("../../service/interface/IUser.php");
-    include("../../config/db.php");
+    include_once("../../service/interface/IUser.php");
+    include_once("../../config/db.php");
     include("../../model/entity/userE.php");
     include("../../service/converter/userConverter.php");
     include("../../model/validator/userVal.php");

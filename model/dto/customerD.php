@@ -1,19 +1,19 @@
 <?php
     class customerD{
-        private String $IdCliente;
-        private String $Nombre;
-        private String $Apellido;
-        private String $Celular;
-        private String $Domicilio;
-        private String $Estado;
-        public function __construct(String $IdCliente, String $Nombre, String $Apellido, String $Celular, String $Domicilio, String $Estado){
-            $this->IdCliente = $IdCliente;
-            $this->Nombre = $Nombre;
-            $this->Apellido = $Apellido;
-            $this->Celular = $Celular;
-            $this->Domicilio = $Domicilio;
-            $this->Estado = $Estado;
-        }
+        public String $IdCliente;
+        public String $Nombre;
+        public String $Apellido;
+        public String $Celular;
+        public String $Domicilio;
+        public String $Estado;
+        // public function __construct(String $IdCliente, String $Nombre, String $Apellido, String $Celular, String $Domicilio, String $Estado){
+        //     $this->IdCliente = $IdCliente;
+        //     $this->Nombre = $Nombre;
+        //     $this->Apellido = $Apellido;
+        //     $this->Celular = $Celular;
+        //     $this->Domicilio = $Domicilio;
+        //     $this->Estado = $Estado;
+        // }
         public function getIdCliente():String{
             return $this->IdCliente;
         }

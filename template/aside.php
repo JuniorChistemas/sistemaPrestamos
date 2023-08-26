@@ -80,8 +80,8 @@
                 </i>
             </div>
             <ul class=" sub-menu">
-        <li><a href="#">Usuarios</a></li>
-        <li><a href="<?php echo $URL_Base;?>user/view.php">Clientes</a></li>
+        <li><a href="<?php echo $URL_Base;?>customer/view.php">Clientes</a></li>
+        <li><a href="<?php echo $URL_Base;?>user/view.php">Usuarios</a></li>
     </ul>
     </li>
     <li>

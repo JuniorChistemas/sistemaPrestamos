@@ -1,5 +1,5 @@
 <?php
-include("../../service/interface/ICustomer.php");
+// include("../../service/interface/ICustomer.php");
     class customerEm implements ICustomer{
         public function crear($entidad){
         }
@@ -13,6 +13,10 @@ include("../../service/interface/ICustomer.php");
         public function listar(){
         }
         public function CodigoCliente(){       
+        }
+        public function listarDatos()
+        {
+            
         }
     }
 ?>

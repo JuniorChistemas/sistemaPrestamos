@@ -2,20 +2,13 @@
     class customerE{
         // este es la clase que se va comunicar con la base de datos
         // el nombre y el apellido se guardaran en mayusculas 
-        private String $IdCliente;
+        private int $IdCliente;
         private String $Nombre;
         private String $Apellido;
         private String $Celular;
         private String $Domicilio;
         private bool $Estado;
-        public function __construct(String $IdCliente, String $Nombre, String $Apellido, String $Celular, String $Domicilio, bool $Estado){
-            $this->IdCliente = $IdCliente;
-            $this->Nombre = $Nombre;
-            $this->Apellido = $Apellido;
-            $this->Celular = $Celular;
-            $this->Domicilio = $Domicilio;
-            $this->Estado = $Estado;
-        }
+
         public function getIdCliente():String{
             return $this->IdCliente;
         }

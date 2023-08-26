@@ -1,5 +1,5 @@
 <?php
-    // include("customerB.php");
+    include("customerB.php");
     include("userB.php");
     include("../../service/dao/impFactory.php");
     class factoryB{
@@ -20,13 +20,10 @@
             }
             return self::$singleton;
         }
-        // public function getCliente(): ClienteB{
-        //     return new ClienteB(self::$fabrica);
-        // }
         public function getUsuario(): UserB{
             return new UserB(self::$fabrica);
         }
-        // public function getVenta(): VentaB{
-        //     return new VentaB(self::$fabrica);
-        // }
+        public function getCliente(): customerB{
+            return new customerB(self::$fabrica);
+        }
     }

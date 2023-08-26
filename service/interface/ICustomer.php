@@ -5,6 +5,7 @@ interface ICustomer {
     public function actualizar($entidad);
     public function eliminar(String $id);
     public function listar();
+    public function listarDatos();
     public function CodigoCliente();
 }
 ?>
