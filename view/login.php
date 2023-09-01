@@ -1,5 +1,9 @@
 <?php
-    
+    include('../controller/loginC.php');
+    $login = new loginControlador();
+    if ($_POST){
+        $login->login($_POST['usuario'],$_POST['pass']);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -22,18 +26,18 @@
     </div>
     <div class="container">
         <div class="left">
-            <form class="form">
+            <form class="form" method="post">
                 <div class="input-block">
-                    <input class="input" type="text" id="email" required="">
+                    <input class="input" type="text" id="usuario" name="usuario" required="">
                     <label for="email">Usuario</label>
                 </div>
                 <div class="input-block">
-                    <input class="input" type="password" id="pass" required="">
+                    <input class="input" type="password" id="pass" name="pass" required="">
                     <label for="pass">contraseña</label>
                 </div>
                 <div class="input-block">
                     <span class="forgot"><a href="#">olvidades tu contraseña?</a></span>
-                    <button>Ingresar</button>
+                    <button type="submit">Ingresar</button>
                 </div>
             </form>
         </div>

@@ -15,15 +15,9 @@
                 echo($e->getMessage());
             }
         }
-        // esto posiblemente no va ya que PDO se cierra automaticamente.
-        public static function cerrar(){
-            if(self::$conexion){
-                try {
-                    mysqli_close(self::$conexion);
-                    self::$conexion=null;
-                } catch (\Throwable $th) {
-                }
-            }
-        }
+        // aqui agregaremos la sentencia sql para ir agregando datos al historial, regresaremos aqui si no podemos hacer lo pensado
+        // public static function historial($accion){
+
+        // }
     }
 ?>

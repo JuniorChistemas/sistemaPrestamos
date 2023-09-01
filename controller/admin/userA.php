@@ -72,6 +72,7 @@
         public function eliminar(string $id){
             $query = "DELETE FROM usuario WHERE idUsuario = '$id';";
             if ($this->conexion->query($query)) {
+                
                 return true;
             }
             return false;

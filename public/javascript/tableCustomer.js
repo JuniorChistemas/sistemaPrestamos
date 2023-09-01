@@ -46,7 +46,7 @@ const dataTableOptions = {
         { orderable: false, targets: [5, 6] },
         { searchable: false, targets: [1] }
     ],
-    pageLength: 12,
+    pageLength: 10,
     destroy: true,
     language: {
         buttons: {

@@ -8,7 +8,7 @@
             $this->conexion = db::conectar();
         }
         public function getUsuario($usuario){
-            $query = "SELECT * FROM usuario WHERE nombre = '$usuario'";
+            $query = "SELECT * FROM usuario WHERE idUsuario = '$usuario'";
             $resul = $this->conexion->query($query);
             if ($resul->rowCount()>0) {
                 $this->row = $resul->fetch(PDO::FETCH_ASSOC);
@@ -16,29 +16,22 @@
             }
             return null;
         }
-        public function getDatos(){
-            return $this->row;
-        }
     }
     class loginControlador{
         public function login($usuario,$password){
             $usuarioN = new login();
-            $getUsuario = $usuarioN->getUsuario($usuario);
+            $getUsuario = $usuarioN->getUsuario(intval($usuario));
             session_start();
             $_SESSION['nivel'] =  $getUsuario['nivel'];
-            $_SESSION['usuario'] =  $getUsuario['nombre'];
-            $_SESSION['foto'] = $getUsuario['foto'];
+            $_SESSION['nombre'] =  $getUsuario['nombre'];
             $_SESSION['codigo'] = $getUsuario['idUsuario'];
-            if ($getUsuario && password_verify($password,$getUsuario['Contrasenia'])) {
-                echo "<script>window.location.href = '../views/Inicio/sistema.php';</script>";
+            if ($getUsuario!==null && password_verify($password,$getUsuario['contrasenia'])) {
+                echo("entre al sistema");
+                echo "<script>window.location.href = '../view/web/principal.php';</script>";
                 exit;
             }else{
-                echo("hola no entre :(");
+                echo "<script> alert('DATOS INCORRECTOS') ;</script>";
             }
-        }
-        public function cerrar(){
-            session_destroy();
-            echo "<script>window.location.href = '../views/login.php';</script>";
         }
     }
 ?>

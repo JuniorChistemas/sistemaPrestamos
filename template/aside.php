@@ -1,5 +1,9 @@
 <?php
     $URL_Base ="http://localhost:8080/proyecto-1/view/";
+    session_start();
+    $nivelUsuario = $_SESSION['nivel'] ?? null;
+    $Usuario = $_SESSION['nombre'] ?? null;
+    $codigo = $_SESSION['idUsuario'] ?? null;
 ?>
 <div class="sidebar close">
     <div class="logo-details">
@@ -22,7 +26,7 @@
         </li>
         <li>
             <div class="iocn-link">
-                <a href="#">
+                <a href="<?php echo $URL_Base;?>loan/view.php">
                     <i class='bx bxs-user-voice'>
                         <img src="../../public/svg/badge_dollar.svg" alt="user"  style='margin-top: 7px;'>
                     </i>
@@ -34,7 +38,7 @@
             </div>
             <ul class="sub-menu">
                 <li>
-                    <a href="#">
+                    <a href="<?php echo $URL_Base;?>loan/new.php">
                         Nuevo
                     </a>
                 </li>
@@ -123,10 +127,10 @@
                 <img src="../../public/svg/user.svg" alt="profileImg">
             </div>
             <div class="name-job">
-                <div class="profile_name">Administrador</div>
-                <div class="profile_name">Junior Martinez</div>
+                <div class="profile_name"><?php echo($nivelUsuario);?></div>
+                <div class="profile_name"><?php echo($Usuario);?></div>
                 <div class="job">
-                    <a class="link_name" href="#">
+                    <a class="link_name" href="../../controller/close.php">
                         CERRAR SECCION
                     </a>
                 </div>

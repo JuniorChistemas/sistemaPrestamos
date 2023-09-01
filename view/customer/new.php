@@ -4,8 +4,10 @@ include("../../template/header.php");
 include("../../controller/businnes/factoryB.php");
 $fabrica = factoryB::getInicio();
 $cliente = $fabrica->getCliente();
+$record = $fabrica->getRecord();
 if ($_POST) {
     $cliente->crearCliente();
+    $record->agregarCliente();
 }
 ?>
 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 400px;">

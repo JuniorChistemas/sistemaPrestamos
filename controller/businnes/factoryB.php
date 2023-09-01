@@ -1,6 +1,7 @@
 <?php
     include("customerB.php");
     include("userB.php");
+    include("recordB.php");
     include("../../service/dao/impFactory.php");
     class factoryB{
         private static $singleton;
@@ -25,5 +26,8 @@
         }
         public function getCliente(): customerB{
             return new customerB(self::$fabrica);
+        }
+        public function getRecord(): recordB{
+            return new recordB((self::$fabrica));
         }
     }

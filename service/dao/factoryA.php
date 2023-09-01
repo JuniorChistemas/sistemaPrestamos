@@ -1,6 +1,7 @@
 <?php
     include("../../controller/admin/userA.php");
     include("../../controller/admin/customerA.php");
+    include("../../controller/admin/recordA.php");
     include_once("IDao.php");
     class factoryA extends IDao{
         public function userClass(): IUser{
@@ -9,6 +10,10 @@
         public function customerClass(): ICustomer
         {
             return new customerA();
+        }
+        public function recordClass(): IRecord
+        {
+            return new recordA();
         }
     }
 ?>  

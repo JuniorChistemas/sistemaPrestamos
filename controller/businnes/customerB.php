@@ -58,7 +58,7 @@
                     $dto->setDomicilio($_POST['domicilio']);
                     $dto->setEstado(isset($_POST['estado']))?$_POST['estado']:"0";
                     if ($this->Dao->actualizar($dto)) {
-                        $mensaje = "Agregado";
+                        $mensaje = "Actualizado";
                     echo "<script>window.location.href = '../../view/customer/view.php?mensaje=$mensaje';</script>";
                     }else{
                         $mensaje = "inconcistencia-de-datos";

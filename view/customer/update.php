@@ -4,8 +4,10 @@ include("../../template/header.php");
 include("../../controller/businnes/factoryB.php");
 $fabrica = factoryB::getInicio();
 $cliente = $fabrica->getCliente();
+$recordB = $fabrica->getRecord();
 if ($_POST) {
     $cliente->actualizarCliente();
+    $recordB->actualizarCliente($_POST['motivo']);
 }
 if (isset($_GET['codigo'])) {
     $dato = $cliente->datosFila($_GET['codigo']);
@@ -17,7 +19,7 @@ if (isset($_GET['codigo'])) {
         <p class="title">ACTUALIZAR CLIENTE </p>
         <p class="message">Todos los datos son validados. </p>
         <label>
-            <input required="" value="<?php echo $_GET['codigo']?>" placeholder="" type="text" class="input" name="nombre">
+            <input required="" value="<?php echo $dato['nombre']?>" placeholder="" type="text" class="input" name="nombre">
             <span>Nombre</span>
         </label>
         <label>
@@ -37,6 +39,10 @@ if (isset($_GET['codigo'])) {
         <label>
             <input required="" value="<?php echo $dato['domicilio']?>" placeholder="" type="text" class="input" name="domicilio">
             <span>Direccion</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="text" class="input" name="motivo">
+            <span>Motivo</span>
         </label>
         <label>
                 <div class="form-check text-center">

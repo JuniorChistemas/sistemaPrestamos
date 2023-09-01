@@ -172,7 +172,7 @@ button {
     margin: 10px auto;
     width: 80%;
     display: block;
-    color: #425981;
+    color: #0c0c0c;
     font-weight: 500;
     font-size: 1.1em;
 }
@@ -199,12 +199,12 @@ label {
 
 .input:focus+label,
 .input:valid+label {
-    transform: translateY(-120%) scale(0.9);
+    transform: translateY(-145%) scale(1);
     transition: all 0.4s;
 }
 
 button {
-    background-color: #5e7eb6;
+    background-color: #154ba8;
     color: white;
     font-size: medium;
     box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);

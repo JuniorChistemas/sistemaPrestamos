@@ -4,9 +4,11 @@ include("../../template/header.php");
 include("../../controller/businnes/factoryB.php");
 $fabrica2 = factoryB::getInicio();
 $clienteB = $fabrica2->getCliente();
+$recordB = $fabrica2->getRecord();
 $dataCustomer = $clienteB->listar();
 if (isset($_GET['codigo'])) {
     $clienteB->eliminar($_GET['codigo']);
+    $recordB->eliminarCliente();
 }
 ?>
 <button class="new position-absolute top-0 end-0 m-5" id="cliente">Agregar cliente</button>
