@@ -101,14 +101,14 @@ $codigo = $_SESSION['idUsuario'] ?? null;
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="<?php echo $URL_Base; ?>tools/view.php">
                 <i class='bx bxs-edit-location'>
                     <img src="../../public/svg/grid_4-1.svg" alt="" style="margin-top: 7px;">
                 </i>
-                <span class="link_name">Reportes</span>
+                <span class="link_name">Tecnologias</span>
             </a>
             <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">Sedes</a></li>
+                <li><a class="link_name" href="<?php echo $URL_Base; ?>tools/view.php">Tecnologias</a></li>
             </ul>
         </li>
         <li>
