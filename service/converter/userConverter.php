@@ -1,5 +1,5 @@
 <?php
-include("converter.php");
+include_once("converter.php");
 include("../../model/dto/userD.php");
 // include("../../model/entity/userE.php");
     class userConverter extends converter{

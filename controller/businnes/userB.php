@@ -1,9 +1,11 @@
 <?php
     class userB{
         private $Dao;
+        private $record;
         public function __construct(IDao $obj)
         {
             $this->Dao = ($obj->userClass()); 
+            $this->record = new recordB($obj);
         }
         public function listar(){
             if ($this->Dao->listarDatos()!=null) {
@@ -33,6 +35,8 @@
                     $dto->setNivel(isset($_POST['nivel'])?$_POST['nivel']:"Empleado");
                     $dto->setEstado(isset($_POST["estado"]))?$_POST['estado']:"0";
                     if ($this->Dao->crear($dto)) {
+                        $accion = $dto->getIdUsuario();
+                        $this->record->historial("usuario $accion agregado");
                         $mensaje = "Agregado";
                     echo "<script>window.location.href = '../../view/user/view.php?mensaje=$mensaje';</script>";
                     }else{
@@ -49,6 +53,7 @@
         }
         public function eliminar($id){
             if ($this->Dao->eliminar($id)) {
+                $this->record->historial("usuario $id eliminado");
                 $mensaje = "Eliminado";
                 echo "<script>window.location.href = '../../view/user/view.php?mensaje=$mensaje';</script>";
             }
@@ -80,7 +85,9 @@
                 }
                 $dto->setNivel(isset($_POST['nivel'])?$_POST['nivel']:"Empleado");
                 $dto->setEstado(isset($_POST["estado"]))?$_POST['estado']:"0";
+                $motivo = $_POST['motivo']?$_POST['motivo']:"sin motivo";
                 if ($this->Dao->actualizar($dto)) {
+                    $this->record->historial("cliente actualizado: $motivo");
                     $mensaje = "actualizado";
                 echo "<script>window.location.href = '../../view/user/view.php?mensaje=$mensaje';</script>";
                 }

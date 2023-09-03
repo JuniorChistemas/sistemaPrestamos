@@ -2,6 +2,7 @@
     include_once("../../config/db.php");
     include_once("../../service/interface/IRecord.php");
     include("../../model/entity/recordE.php");
+    include_once("../../service/converter/recordConverter.php");
     class recordA implements IRecord{
         private $conexion = null;
         public function __construct()
@@ -30,6 +31,7 @@
         }
         public function agregar(String $accion)
         {
+            // aqui no usamos el convertirdor
             // obtenemos la fecha actual
             date_default_timezone_set('America/Lima');
             $fechaObjeto = new DateTime();
@@ -47,7 +49,7 @@
             $columnas = implode(', ', array_keys($datos));
             $valores = "'" . implode("', '", array_values($datos)) . "'";           
             $query = "INSERT INTO historial ($columnas) VALUES ($valores)"; 
-            echo($query);
+            // echo($query);
             if($this->conexion->query($query)){
                 $entidad==null;
                 return true;

@@ -41,7 +41,7 @@ class customerA implements ICustomer
                 // $query2 = "INSERT INTO historial(fecha,usuario,accion) VALUES ('$fechaFormateada','$Usuario','agregue nuevo cliente')";
                 // echo($query2);
                 // if ($this->conexion->query($query2)) {
-                    return true;
+                return true;
                 // }
                 // return true;
             } else {
@@ -56,8 +56,38 @@ class customerA implements ICustomer
         $sentencia = $this->conexion->prepare("SELECT* FROM cliente WHERE idCliente=:id");
         $sentencia->bindParam(':id', $id, PDO::PARAM_STR);
         $sentencia->execute();
-        $fila = $sentencia->fetch(PDO::FETCH_ASSOC);
-        return $fila;
+        $usuarios = array();
+        $row = $sentencia->fetch(PDO::FETCH_ASSOC);
+        $entidad = new customerE;
+        $entidad->setIdCliente($row["idCliente"]);
+        $entidad->setNombre($row["nombre"]);
+        $entidad->setApellido($row["apellido"]);
+        $entidad->setCelular($row["celular"]);
+        $entidad->setDomicilio($row["domicilio"]);
+        $entidad->setEstado($row["estado"]);
+        $converter = new customerConverter();
+        $DTO = $converter->dto($entidad);
+        $customerDArray[] = $DTO;
+        // -----------------
+        if (!empty($customerDArray)) {
+            $primerCustomerD = $customerDArray[0]; 
+            $datosArray = array(
+                'IdCliente' => $primerCustomerD->IdCliente,
+                'Nombre' => $primerCustomerD->Nombre,
+                'Apellido' => $primerCustomerD->Apellido,
+                'Celular' => $primerCustomerD->Celular,
+                'Domicilio' => $primerCustomerD->Domicilio,
+                'Estado' => $primerCustomerD->Estado
+            );
+            return $datosArray;
+        } else {
+            return null;
+        }
+        // -----------------
+        // echo($DTO->getIdCliente());
+        // $usuarios[] = $DTO;
+        // print_r($usuarios);
+        // return $usuarios;
     }
     public function actualizar($dto)
     {
@@ -94,10 +124,7 @@ class customerA implements ICustomer
     }
     public function listar()
     {
-        $sentencia = $this->conexion->prepare("SELECT* FROM cliente");
-        $sentencia->execute();
-        $lista = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-        return $lista;
+        // funcion no implementada
     }
     public function CodigoCliente()
     {

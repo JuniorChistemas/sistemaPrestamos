@@ -26,7 +26,6 @@
             $_SESSION['nombre'] =  $getUsuario['nombre'];
             $_SESSION['codigo'] = $getUsuario['idUsuario'];
             if ($getUsuario!==null && password_verify($password,$getUsuario['contrasenia'])) {
-                echo("entre al sistema");
                 echo "<script>window.location.href = '../view/web/principal.php';</script>";
                 exit;
             }else{

@@ -3,48 +3,43 @@ include("../../template/aside.php");
 include("../../template/header.php");
 include("../../controller/businnes/factoryB.php");
 $fabrica2 = factoryB::getInicio();
-$clienteB = $fabrica2->getCliente();
+$clienteB = $fabrica2->getRecord();
 $dataCustomer = $clienteB->listar();
-if (isset($_GET['codigo'])) {
-    $clienteB->eliminar($_GET['codigo']);
-}
 ?>
-<button class="new position-absolute top-0 end-0 m-5" id="cliente">Agregar cliente</button>
+<button class="new position-absolute top-0 end-0 m-5" id="cliente">Eliminar historial</button>
 <div class="alert alert-primary col-sm-12 col-md-12 col-lg-12 col-xl-12 mt-5" role="alert" style=" text-align: center;font-size: medium;">
-    <strong>TABLA DE CLIENTE</strong>
+    <strong>HISTORIAL DE EVENTOS</strong>
 </div>
 <main>
     <div class="container my-4 p-5" style="background-color: #e8f5ff;">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                <table id="datatable_customers" class="table table-striped">
+                <table id="datatable_record" class="table table-striped">
                     <caption>
                         Datos principales
                     </caption>
                     <thead>
                         <tr>
-                            <th class="centered">DOMICILIO</th>
-                            <th class="centered">CELULAR</th>
-                            <th class="centered">DNI</th>
+                            <th class="centered">N°</th>
+                            <th class="centered">Fecha</th>
                             <th class="centered">NOMBRE</th>
-                            <th class="centered">APELLIDOS</th>
-                            <th class="centered">ESTADO</th>
-                            <th class="centered excluido">Acciones</th>
+                            <th class="centered">Accion</th>
+                            <th class="centered">Estado</th>
                         </tr>
                     </thead>
-                    <tbody id="tableBody_customers"></tbody>
+                    <tbody id="tableBody_record"></tbody>
                 </table>
             </div>
         </div>
     </div>
     <script>
-        var dataC = <?php echo json_encode($dataCustomer) ?>;
+        var datos = <?php echo json_encode($dataCustomer) ?>;
         const boton = document.getElementById('cliente');
         boton.addEventListener('click', () => {
             window.location.href = 'new.php';
         });
     </script>
-    <script src="../../public/javascript/tableCustomer.js"></script>
+    <script src="../../public/javascript/record.js"></script>
     </div>
 </main>
 <?php

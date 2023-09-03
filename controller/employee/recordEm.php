@@ -1,6 +1,7 @@
 <?php
     include_once("../../config/db.php");
     include_once("../../service/interface/IRecord.php");
+    include_once("../../service/converter/recordConverter.php");
     class recordEm implements IRecord{
         private $conexion = null;
         public function __construct()

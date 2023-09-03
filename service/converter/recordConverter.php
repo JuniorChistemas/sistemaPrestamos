@@ -1,5 +1,6 @@
 <?php
-    include("converter.php");
+    include_once("converter.php");
+    include("../../model/dto/recordD.php");
     class recordConverter extends converter{
         public function entidad($dto)
         {
@@ -8,7 +9,7 @@
             $fechaObjeto = new DateTime($dto->getFecha());
             // formato
             $fechaFormateada = $fechaObjeto->format('Y-m-d H:i:s');
-            $entidad->getFecha($dto->getFecha($fechaFormateada));
+            $entidad->setFecha($fechaFormateada);
             $entidad->setNombre($dto->getNombre());
             $entidad->setAccion($dto->getAccion());
             return $entidad;
@@ -20,11 +21,12 @@
             $dto->setIdHistorial($entidad->getIdHistorial());
             // fecha
             $fechaObjeto = new DateTime($entidad->getFecha());
-            // formato
-            $fechaFormateada = $fechaObjeto->format('d \d\e F \d\e Y, g:i A');
+            // el formato para español se debe de habilitar una extencion en el servidor xammp 
+            $localizador = new IntlDateFormatter('es_ES', IntlDateFormatter::LONG, IntlDateFormatter::NONE, null, null, 'dd \'de\' MMMM \'de\' y, h:mm a');
+            $fechaFormateada = $localizador->format($fechaObjeto);
             $dto->setFecha($fechaFormateada);
-            $dto->getNombre($entidad->getNombre());
-            $dto->getAccion($entidad->getAccion());
+            $dto->setNombre($entidad->getNombre());
+            $dto->setAccion($entidad->getAccion());
             return $dto;
         }
     }

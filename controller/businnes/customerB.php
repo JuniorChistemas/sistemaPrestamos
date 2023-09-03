@@ -1,9 +1,11 @@
 <?php
     class customerB{
         private $Dao;
+        private $record;
         public function __construct(IDao $obj)
         {
             $this->Dao = ($obj->customerClass()); 
+            $this->record = new recordB($obj);
         }
         public function listar(){
             if ($this->Dao->listarDatos()!=null) {
@@ -22,6 +24,8 @@
                     $dto->setDomicilio($_POST['domicilio']);
                     $dto->setEstado(isset($_POST["estado"]))?$_POST['estado']:"0";
                     if ($this->Dao->crear($dto)) {
+                        $accion = $dto->getIdCliente();
+                        $this->record->historial("cliente $accion agregado");
                         $mensaje = "Agregado";
                     echo "<script>window.location.href = '../../view/customer/view.php?mensaje=$mensaje';</script>";
                     }else{
@@ -35,6 +39,7 @@
         }
         public function eliminar($id){
             if ($this->Dao->eliminar($id)) {
+                $this->record->historial("cliente $id eliminado");
                 $mensaje = "Eliminado";
                 echo "<script>window.location.href = '../../view/customer/view.php?mensaje=$mensaje';</script>";
             }
@@ -57,8 +62,9 @@
                     $dto->setCelular($_POST['celular']);
                     $dto->setDomicilio($_POST['domicilio']);
                     $dto->setEstado(isset($_POST['estado']))?$_POST['estado']:"0";
+                    $mensaje = $_POST['motivo']?$_POST['motivo']:"sin motivo";
                     if ($this->Dao->actualizar($dto)) {
-                        $mensaje = "Actualizado";
+                        $this->record->historial("cliente actualizado: $mensaje");
                     echo "<script>window.location.href = '../../view/customer/view.php?mensaje=$mensaje';</script>";
                     }else{
                         $mensaje = "inconcistencia-de-datos";

@@ -6,34 +6,18 @@
             $this->Dao = ($obj->recordClass()); 
         }
         // TABLA CLIENTE PARA ALMACENAR HISTORIAL
-        public function agregarCliente(){
-            $accion = 'se agrego un cliente nuevo';
+        public function historial($accion){
             try {
                 $this->Dao->agregar($accion);
             } catch (\Throwable $th) {
             }
         }
-        public function actualizarCliente($accion){
-            // $accion = 'se agrego un cliente nuevo';
-            try {
-                $this->Dao->agregar($accion);
-            } catch (\Throwable $th) {
+        public function listar(){
+            if ($this->Dao->Listar()!=null) {
+                return $this->Dao->Listar();
             }
+            return null;
         }
-        public function eliminarCliente(){
-            $accion = 'se elimino un cliente nuevo';
-            try {
-                $this->Dao->agregar($accion);
-            } catch (\Throwable $th) {
-            }
-        }
-        // **********************************************************************************************
-        public function agregarUsuario(){
-            $accion = 'se agrego un cliente nuevo';
-            try {
-                $this->Dao->agregar($accion);
-            } catch (\Throwable $th) {
-            }
-        }
+        
     }
 ?>

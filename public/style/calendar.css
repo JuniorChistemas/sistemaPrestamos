@@ -1,0 +1,53 @@
+.containerFecha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* .container .day-number {
+    font-size: 24px;
+    font-weight: bold;
+} */
+
+.calendario {
+    width: 80%;
+    margin: 20px auto;
+    /* border-collapse: collapse; */
+}
+th,
+.celdas{
+    padding: 10px;
+    /* text-align: center !important; */
+}
+.celdas{
+    background-color: rgb(244, 246, 247);
+    text-align: center !important;
+}
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:nth-child(odd) {
+    background-color: #49ded7;
+} */
+.day-button {
+    font-family: monospace;
+    background-color: #f3f7fe;
+    color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: .3s;
+}
+
+.day-button:hover {
+    background-color: #3b82f6;
+    box-shadow: 0 0 0 5px #3b83f65f;
+    color: #fff;
+}
