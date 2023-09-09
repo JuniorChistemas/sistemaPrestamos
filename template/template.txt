@@ -1,1 +1,0 @@
-en este se agrega el header, body y footer en el cual estara baso todo el sistema.

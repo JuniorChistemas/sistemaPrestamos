@@ -30,17 +30,6 @@ class customerA implements ICustomer
             $valores = "'" . implode("', '", array_values($datos)) . "'";
             $query = "INSERT INTO cliente ($columnas) VALUES ($valores)";
             if ($this->conexion->query($query)) {
-                // aqui podemos agregar el historial a la tabla de registro pero antes de ello necesitamos el login implementado para utilizar variables globales
-                //     $nivelUsuario = $_SESSION['nivel'] ?? null;
-                // $Usuario = $_SESSION['nombre'] ?? null;
-                // $codigo = $_SESSION['idUsuario'] ?? null;
-                // $fecha = new DateTime();
-                // $fechaFormateada = $fecha->format('Y-m-d H:i:s');
-                // echo($fechaFormateada);
-                // $_SESSION[]
-                // $query2 = "INSERT INTO historial(fecha,usuario,accion) VALUES ('$fechaFormateada','$Usuario','agregue nuevo cliente')";
-                // echo($query2);
-                // if ($this->conexion->query($query2)) {
                 return true;
                 // }
                 // return true;
@@ -83,11 +72,6 @@ class customerA implements ICustomer
         } else {
             return null;
         }
-        // -----------------
-        // echo($DTO->getIdCliente());
-        // $usuarios[] = $DTO;
-        // print_r($usuarios);
-        // return $usuarios;
     }
     public function actualizar($dto)
     {

@@ -1,1 +1,0 @@
-aqui sera colocado el codigo que se utilizo para crear la base de datos en mysql

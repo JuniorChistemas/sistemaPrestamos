@@ -1,1 +1,0 @@
-en la carpeta validator sera para validar los inputs que ingresara el usuario 

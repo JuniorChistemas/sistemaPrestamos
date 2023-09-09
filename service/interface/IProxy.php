@@ -1,5 +1,5 @@
 <?php
     interface IProxy{
-        public function procesoEjecutando();
+        public function llamarProcesos($dto);
     }
 ?>

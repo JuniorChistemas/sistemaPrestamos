@@ -1,1 +1,0 @@
-aqui sera implementado el patron converter para por pasar de entity a dto segun sea el caso
