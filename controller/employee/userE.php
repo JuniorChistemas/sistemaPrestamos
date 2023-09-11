@@ -8,14 +8,17 @@
             $this->conexion = db::conectar();
         }
         public function crear($dto){
-            echo("ingrese aqui");
+            return false;
         }
         public function leer($id)
         {           
+            return false;
         }
         public function actualizar($entidad){
+            return false;
         }
         public function eliminar(string $id){
+            return false;
         }
         public function listar(){
             $sentencia = $this->conexion->prepare("SELECT* FROM usuario");

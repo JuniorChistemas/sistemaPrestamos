@@ -15,9 +15,5 @@
                 echo($e->getMessage());
             }
         }
-        // aqui agregaremos la sentencia sql para ir agregando datos al historial, regresaremos aqui si no podemos hacer lo pensado
-        // public static function historial($accion){
-
-        // }
     }
 ?>

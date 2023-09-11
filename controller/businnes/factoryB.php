@@ -11,7 +11,7 @@
         {
             $general = new impFactory();
             // $nivel = $_SESSION['nivel']?? null;
-            self::$fabrica = new ($general->Condicional("administrador"));
+            self::$fabrica = new ($general->Condicional($_SESSION['nivel']));
         }
         private static function inicio(){
             self::$singleton = new self();

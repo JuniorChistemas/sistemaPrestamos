@@ -3,7 +3,7 @@ $URL_Base = "http://localhost:8080/proyecto-1/view/";
 session_start();
 $nivelUsuario = $_SESSION['nivel'] ?? null;
 $Usuario = $_SESSION['nombre'] ?? null;
-$codigo = $_SESSION['idUsuario'] ?? null;
+$codigo = $_SESSION['codigo'] ?? null;
 ?>
 <div class="sidebar close">
     <div class="logo-details">

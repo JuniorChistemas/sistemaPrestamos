@@ -28,9 +28,33 @@
             }
             return $historial;
         }
-        public function agregar($entidad)
+        public function agregar(String $accion)
         {
-            
+            // aqui no usamos el convertirdor
+            // obtenemos la fecha actual
+            date_default_timezone_set('America/Lima');
+            $fechaObjeto = new DateTime();
+            $fechaHoraActual = $fechaObjeto->format('Y-m-d H:i:s');
+            // guardamos datos
+            $entidad = new recordE();
+            $entidad->setFecha($fechaHoraActual);
+            $entidad->setNombre($_SESSION['nombre']);
+            $entidad->setAccion($accion);
+            $datos = array(
+                'fecha' =>  $entidad->getFecha(),
+                'usuario' =>  $entidad->getNombre(),
+                'accion' => $entidad->getAccion()
+            );
+            $columnas = implode(', ', array_keys($datos));
+            $valores = "'" . implode("', '", array_values($datos)) . "'";           
+            $query = "INSERT INTO historial ($columnas) VALUES ($valores)"; 
+            // echo($query);
+            if($this->conexion->query($query)){
+                $entidad==null;
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 ?>

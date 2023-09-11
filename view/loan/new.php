@@ -21,13 +21,7 @@ if ($_POST) {
                 <div class="flex">
                     <td class="p-3">
                         <label>
-                            <input required="" placeholder="" type="text" class="input" name="prestamo">
-                            <span>Cod.Prestamo</span>
-                        </label>
-                    </td>
-                    <td class="p-3">
-                        <label>
-                            <input required="" placeholder="" type="number" class="input" name="usuario">
+                            <input required="" value="<?php echo $_SESSION['codigo']?>" type="text" class="input" name="usuario">
                             <span>Cod.Usuario</span>
                         </label>
                     </td>
@@ -37,17 +31,23 @@ if ($_POST) {
                             <span>Cod.Cliente</span>
                         </label>
                     </td>
-                </div>
-            </tr>
-            <tr>
-                <div class="flex">
                     <td class="p-3">
                         <label>
                             <input required="" placeholder="" type="number" class="input" name="cantidad">
                             <span>CANTIDAD</span>
                         </label>
                     </td>
-                    <td class="p-3" colspan="2">
+                </div>
+            </tr>
+            <tr>
+                <div class="flex">
+                    <!-- <td class="p-3">
+                        <label>
+                            <input required="" placeholder="" type="number" class="input" name="cantidad">
+                            <span>CANTIDAD</span>
+                        </label>
+                    </td> -->
+                    <td class="p-3" colspan="3">
                         <label style="width: 290px;">
                             <input required="" placeholder="" type="text" class="input" name="garantia">
                             <span>GARANTIA</span>

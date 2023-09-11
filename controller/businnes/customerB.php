@@ -42,6 +42,9 @@
                 $this->record->historial("cliente $id eliminado");
                 $mensaje = "Eliminado";
                 echo "<script>window.location.href = '../../view/customer/view.php?mensaje=$mensaje';</script>";
+            }else{
+                $mensaje = "accion no permitida";
+                echo "<script>window.location.href = '../../view/customer/view.php?alerta=$mensaje';</script>";
             }
         }
         public function datosFila($id){

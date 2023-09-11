@@ -1,10 +1,10 @@
 <?php
 include_once("../../service/interface/ICustomer.php");
 include_once("../../config/db.php");
-include("../../model/dto/customerD.php");
-include("../../model/entity/customerE.php");
-include("../../service/converter/customerConverter.php");
-include("../../model/validator/customerVal.php");
+include_once("../../model/dto/customerD.php");
+include_once("../../model/entity/customerE.php");
+include_once("../../service/converter/customerConverter.php");
+include_once("../../model/validator/customerVal.php");
 class customerA implements ICustomer
 {
     private $conexion = null;
@@ -31,8 +31,6 @@ class customerA implements ICustomer
             $query = "INSERT INTO cliente ($columnas) VALUES ($valores)";
             if ($this->conexion->query($query)) {
                 return true;
-                // }
-                // return true;
             } else {
                 return false;
             }
@@ -110,6 +108,7 @@ class customerA implements ICustomer
     {
         // funcion no implementada
     }
+    // funcion para que el sistema cree codigos de manera automatica, no implementada
     public function CodigoCliente()
     {
     }

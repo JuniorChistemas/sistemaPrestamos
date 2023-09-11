@@ -5,7 +5,6 @@
         public function entidad($dto)
         {
             $entidad = new loanE();
-            $entidad->setIdPrestamo($dto->getIdPrestamo());
             $entidad->setIdUsuario(intval($dto->getIdUsuario()));
             $entidad->setIdCliente(intval($dto->getIdCliente()));
             $entidad->setCantidad(floatval($dto->getCantidad()));
